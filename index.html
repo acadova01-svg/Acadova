@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acadova — Peer-to-Peer Academic Skill and Knowledge Sharing Platform</title>
+  <meta name="description" content="Acadova is a peer-powered academic community where students teach what they know, earn credits, and learn what they need with zero monetary transactions. Supporting SDG 4 — Quality Education.">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. STICKY MODERN NAVBAR
+       ======================================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Acadova Home">
+        <div class="logo-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Acadova</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu desktop-menu">
+        <li><a href="#hero" class="nav-link desktop-nav-link active">Home</a></li>
+        <li><a href="#how-it-works" class="nav-link desktop-nav-link">How It Works</a></li>
+        <li><a href="#credit-system" class="nav-link desktop-nav-link">Credit Model</a></li>
+        <li><a href="#features" class="nav-link desktop-nav-link">Features</a></li>
+        <li><a href="#skill-network" class="nav-link desktop-nav-link">Explore Skills</a></li>
+        <li><a href="#dashboard-preview" class="nav-link desktop-nav-link">Dashboard</a></li>
+        <li><a href="#sdg-section" class="nav-link desktop-nav-link">SDG 4</a></li>
+      </ul>
+
+      <!-- Desktop Actions & Live Backend Health Indicator -->
+      <div class="nav-actions desktop-actions">
+        <div class="status-indicator" id="apiStatusIndicator" title="Click to verify API cluster connectivity">
+          <span class="status-dot"></span>
+          <span id="apiStatusText">API Online</span>
+        </div>
+        <a href="#login" class="btn btn-secondary btn-sm trigger-auth-modal" data-auth-mode="login">Log In</a>
+        <a href="#get-started" class="btn btn-primary btn-sm trigger-auth-modal" data-auth-mode="register">
+          <span>Get Started</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="nav-menu">
+      <li><a href="#hero" class="nav-link mobile-nav-link">Home</a></li>
+      <li><a href="#how-it-works" class="nav-link mobile-nav-link">How It Works</a></li>
+      <li><a href="#credit-system" class="nav-link mobile-nav-link">Credit Model</a></li>
+      <li><a href="#features" class="nav-link mobile-nav-link">Features</a></li>
+      <li><a href="#skill-network" class="nav-link mobile-nav-link">Explore Skills</a></li>
+      <li><a href="#dashboard-preview" class="nav-link mobile-nav-link">Dashboard Preview</a></li>
+      <li><a href="#sdg-section" class="nav-link mobile-nav-link">SDG 4 Quality Education</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#login" class="btn btn-secondary mobile-nav-link trigger-auth-modal" data-auth-mode="login">Log In</a>
+      <a href="#register" class="btn btn-primary mobile-nav-link trigger-auth-modal" data-auth-mode="register">Get Started (+2 Credits)</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. HERO SECTION & INTERACTIVE NETWORK VISUALIZER
+       ======================================================================== -->
+  <header class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Main Copy & Value Proposition -->
+        <div class="hero-content">
+          <div class="hero-badge-group">
+            <span class="badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              SDG 4 — Quality Education
+            </span>
+            <span class="badge badge-credit">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8"/></svg>
+              Zero-Money Knowledge Swap
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Learn What You Need.<br>
+            <span class="gradient-text">Teach What You Know.</span>
+          </h1>
+
+          <p class="hero-description">
+            Acadova connects students who want to learn with peers who have the skills to teach — powered by a fair, credit-based knowledge exchange.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg trigger-auth-modal" data-auth-mode="register">
+              <span>Start Learning</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            <a href="#how-it-works" class="btn btn-secondary btn-lg">
+              <span>How It Works</span>
+            </a>
+          </div>
+
+          <div class="hero-no-money">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>No money. Just knowledge.</span>
+          </div>
+
+          <!-- Academic Impact Metrics Strip -->
+          <div class="hero-stats-strip">
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">4,800+</span>
+              <span class="hero-stat-label">Study Sessions</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">1,200+</span>
+              <span class="hero-stat-label">Peer Tutors</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">98%</span>
+              <span class="hero-stat-label">Satisfaction</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">$0</span>
+              <span class="hero-stat-label">Currency Spent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Academic Network Visualization -->
+        <div class="hero-visualizer" id="heroVisualizer">
+          <!-- Background SVG Connector Web -->
+          <div class="network-canvas-wrap">
+            <svg class="network-svg" viewBox="0 0 500 500">
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366F1" stop-opacity="0.8"/>
+                  <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#10B981" stop-opacity="0.8"/>
+                </linearGradient>
+              </defs>
+              <!-- Dynamic connecting paths -->
+              <path d="M 120 100 Q 250 200 250 250" class="network-line active-pulse"/>
+              <path d="M 380 120 Q 300 200 250 250" class="network-line active-pulse"/>
+              <path d="M 100 380 Q 200 320 250 250" class="network-line active-pulse"/>
+              <path d="M 380 400 Q 300 320 250 250" class="network-line active-pulse"/>
+              <path d="M 80 250 Q 180 250 250 250" class="network-line"/>
+              <path d="M 120 100 C 200 60, 320 60, 380 120" class="network-line"/>
+              <path d="M 100 380 C 200 440, 300 440, 380 400" class="network-line"/>
+            </svg>
+          </div>
+
+          <!-- Central Glowing Acadova Credit Node -->
+          <div class="center-credit-hub">
+            <div class="pulse-ring"></div>
+            <div class="credit-coin-inner">
+              <div class="credit-icon-glow">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 8v8M8 12h8"></path>
+                </svg>
+              </div>
+              <span class="credit-hub-text">Acadova Exchange</span>
+              <span class="credit-hub-sub">Peer Credit Engine</span>
+            </div>
+
+            <!-- Real-time dynamic exchange story pill -->
+            <div class="live-swap-pill" id="liveSwapPill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+              <span>Maria teaches Mathematics ➔ <strong>+2 Credits</strong> ➔ Maria learns Python</span>
+            </div>
+          </div>
+
+          <!-- Floating Student Profile 1: Maria -->
+          <div class="student-card card-maria" title="Click to request a session">
+            <div class="student-avatar avatar-maria">MS</div>
+            <div class="student-info">
+              <span class="student-name">Maria Santos</span>
+              <span class="student-skill">Mathematics & Calculus</span>
+            </div>
+            <span class="student-badge-mini">+2 Cr</span>
+          </div>
+
+          <!-- Floating Student Profile 2: John -->
+          <div class="student-card card-john" title="Click to request a session">
+            <div class="student-avatar avatar-john">JD</div>
+            <div class="student-info">
+              <span class="student-name">John Doe</span>
+              <span class="student-skill">Web Development</span>
+            </div>
+            <span class="student-badge-mini">+2 Cr</span>
+          </div>
+
+          <!-- Floating Student Profile 3: Alex -->
+          <div class="student-card card-alex" title="Click to request a session">
+            <div class="student-avatar avatar-alex">AR</div>
+            <div class="student-info">
+              <span class="student-name">Alex Rivera</span>
+              <span class="student-skill">Networking & CCNA</span>
+            </div>
+            <span class="student-badge-mini">+2 Cr</span>
+          </div>
+
+          <!-- Floating Student Profile 4: Sophia -->
+          <div class="student-card card-sophia" title="Click to request a session">
+            <div class="student-avatar avatar-sophia">SB</div>
+            <div class="student-info">
+              <span class="student-name">Sophia Bennett</span>
+              <span class="student-skill">Academic English</span>
+            </div>
+            <span class="student-badge-mini">+2 Cr</span>
+          </div>
+
+          <!-- Floating Student Profile 5: Daniel -->
+          <div class="student-card card-daniel" title="Click to request a session">
+            <div class="student-avatar avatar-daniel">DS</div>
+            <div class="student-info">
+              <span class="student-name">Daniel Scott</span>
+              <span class="student-skill">Database & SQL</span>
+            </div>
+            <span class="student-badge-mini">+2 Cr</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       3. PROBLEM SECTION (Traditional Tutoring vs. Acadova Reciprocity)
+       ======================================================================== -->
+  <section class="problem-section reveal-on-scroll" id="problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">The Educational Barrier</span>
+        <h2>Learning Shouldn't Depend on Your Budget.</h2>
+        <p>
+          Students frequently hit roadblocks in demanding technical subjects but are priced out of high-cost private tutoring. Meanwhile, those same students already possess specialized skills that could unlock a peer's academic success.
+        </p>
+      </div>
+
+      <div class="vs-grid">
+        <!-- Traditional Tutoring Card -->
+        <div class="comparison-card card-traditional">
+          <div class="card-header-comp">
+            <h3 class="card-comp-title" style="color: #F87171;">Traditional Tutoring</h3>
+            <span class="badge" style="background: rgba(239,68,68,0.15); color: #F87171; border-color: rgba(239,68,68,0.3);">High Friction</span>
+          </div>
+
+          <div class="flow-diagram">
+            <div class="flow-node">
+              <div class="node-icon-box icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <span class="node-label">Money (\$30-60/hr)</span>
+            </div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node">
+              <div class="node-icon-box icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <span class="node-label">Paid Tutor</span>
+            </div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node">
+              <div class="node-icon-box icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              </div>
+              <span class="node-label">Gatekept Student</span>
+            </div>
+          </div>
+
+          <ul class="comp-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Exorbitant hourly rates create unequal academic opportunities</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Transaction fees and middleman platforms siphon student funds</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>One-way tutoring fails to build reciprocal student communities</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- VS Badge -->
+        <div class="vs-badge-circle">VS</div>
+
+        <!-- Acadova Model Card -->
+        <div class="comparison-card card-acadova">
+          <div class="card-header-comp">
+            <h3 class="card-comp-title" style="color: #34D399;">The Acadova Model</h3>
+            <span class="badge badge-credit">Peer Reciprocity</span>
+          </div>
+
+          <div class="flow-diagram" style="border-color: rgba(16, 185, 129, 0.3);">
+            <div class="flow-node">
+              <div class="node-icon-box icon-green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <span class="node-label">Your Knowledge</span>
+            </div>
+            <span class="flow-arrow" style="color: #34D399;">➔</span>
+            <div class="flow-node">
+              <div class="node-icon-box icon-green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+              </div>
+              <span class="node-label">Learning Credits</span>
+            </div>
+            <span class="flow-arrow" style="color: #34D399;">➔</span>
+            <div class="flow-node">
+              <div class="node-icon-box icon-green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              </div>
+              <span class="node-label">Mutual Mastery</span>
+            </div>
+          </div>
+
+          <ul class="comp-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>100% cashless knowledge exchange where tutoring earns credit currency</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Directly addresses UN SDG 4 by making academic tutoring universally accessible</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Students reinforce their own mastery by teaching while learning new skills</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. HOW IT WORKS (4-Step Animated Connected Timeline)
+       ======================================================================== -->
+  <section class="how-it-works-section reveal-on-scroll" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Seamless 4-Step Process</span>
+        <h2>How Acadova Works</h2>
+        <p>A structured peer-to-peer ecosystem designed to make teaching effortless, learning engaging, and academic growth reciprocal.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Connecting Line for Desktop -->
+        <div class="timeline-line-desktop">
+          <div class="timeline-line-progress"></div>
+        </div>
+
+        <div class="timeline-grid">
+          <!-- Step 01 -->
+          <div class="timeline-step">
+            <div class="step-indicator">01</div>
+            <div class="step-card">
+              <h3 class="step-title">Create Your Profile</h3>
+              <p class="step-desc">List the subjects you can teach and the skills you are eager to master. Specify your schedule and study preferences.</p>
+              <div class="step-tags">
+                <span class="step-tag">Skills to Teach</span>
+                <span class="step-tag">Skills to Learn</span>
+                <span class="step-tag">Availability</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="timeline-step">
+            <div class="step-indicator">02</div>
+            <div class="step-card">
+              <h3 class="step-title">Find Your Match</h3>
+              <p class="step-desc">Our matching engine filters suitable peer tutors based on complementary skills, schedules, and verified ratings.</p>
+              <div class="step-tags">
+                <span class="step-tag">Smart Filtering</span>
+                <span class="step-tag">Peer Compatibility</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="timeline-step">
+            <div class="step-indicator">03</div>
+            <div class="step-card">
+              <h3 class="step-title">Exchange Knowledge</h3>
+              <p class="step-desc">Schedule and complete a focused 1-on-1 study room. Teaching earns +2 credits; receiving tutoring allocates credits.</p>
+              <div class="step-tags">
+                <span class="step-tag">+2 Credits / Hr</span>
+                <span class="step-tag">Zero Real Cash</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="timeline-step">
+            <div class="step-indicator">04</div>
+            <div class="step-card">
+              <h3 class="step-title">Grow Together</h3>
+              <p class="step-desc">Exchange mutual feedback and ratings to build verifiable academic credentials and level up your credit wallet.</p>
+              <div class="step-tags">
+                <span class="step-tag">Double-Blind Review</span>
+                <span class="step-tag">Skill Badges</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. CREDIT SYSTEM & LIVE EXCHANGE SIMULATOR
+       ======================================================================== -->
+  <section class="credit-section reveal-on-scroll" id="credit-system">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-credit">Fair Knowledge Economy</span>
+        <h2>Your Knowledge Has Value.</h2>
+        <p>Acadova replaces monetary barriers with learning credits, allowing students to teach and learn collaboratively within the same scholarly network.</p>
+      </div>
+
+      <!-- Animated Flow Steps Loop -->
+      <div class="credit-flow-box">
+        <div class="credit-flow-step active">
+          <div class="flow-step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <span>1. TEACH</span>
+        </div>
+        <span class="credit-flow-arrow">➔</span>
+        <div class="credit-flow-step active">
+          <div class="flow-step-icon" style="background: rgba(16, 185, 129, 0.2); color: #34D399;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+          </div>
+          <span>2. EARN CREDITS</span>
+        </div>
+        <span class="credit-flow-arrow">➔</span>
+        <div class="credit-flow-step active">
+          <div class="flow-step-icon" style="background: rgba(56, 189, 248, 0.2); color: #38BDF8;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          </div>
+          <span>3. LEARN</span>
+        </div>
+        <span class="credit-flow-arrow">➔</span>
+        <div class="credit-flow-step active">
+          <div class="flow-step-icon" style="background: rgba(168, 85, 247, 0.2); color: #C084FC;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <span>4. GROW</span>
+        </div>
+      </div>
+
+      <!-- Interactive Credit Simulator Card -->
+      <div class="simulator-card">
+        <div class="simulator-header">
+          <div>
+            <h3 style="font-size: 1.35rem; color: var(--text-pure);">Interactive Knowledge Swap Simulator</h3>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">See how teaching an existing skill funds your next study session instantly.</p>
+          </div>
+          <div class="simulator-balance-badge">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Current Wallet:</span>
+            <span class="balance-amount" id="simBalanceCount">24 Credits</span>
+          </div>
+        </div>
+
+        <div class="simulator-grid">
+          <!-- Step A: Choose Skill to Teach -->
+          <div class="sim-box">
+            <span class="sim-box-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              I Can Teach:
+            </span>
+            <select class="sim-select" id="simTeachSelect" aria-label="Select a skill to teach">
+              <option value="JavaScript & React">JavaScript & React (+2 Credits)</option>
+              <option value="Calculus & Linear Algebra">Calculus & Linear Algebra (+2 Credits)</option>
+              <option value="Database Normalization">Database Normalization (+2 Credits)</option>
+              <option value="Computer Networks">Computer Networks (+2 Credits)</option>
+              <option value="Academic Essay Writing">Academic Essay Writing (+2 Credits)</option>
+            </select>
+            <div class="sim-credit-delta delta-earn">+2 Credits Earned</div>
+          </div>
+
+          <!-- Swap Action Center -->
+          <div class="sim-exchange-btn-wrap">
+            <button class="sim-btn-round" id="simExchangeBtn" title="Simulate Knowledge Swap" aria-label="Simulate Knowledge Swap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+            </button>
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">SIMULATE SWAP</span>
+          </div>
+
+          <!-- Step B: Choose Skill to Learn -->
+          <div class="sim-box">
+            <span class="sim-box-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              I Want to Learn:
+            </span>
+            <select class="sim-select" id="simLearnSelect" aria-label="Select a skill to learn">
+              <option value="Python & AI Algorithms">Python & AI Algorithms (-2 Credits)</option>
+              <option value="Cybersecurity Basics">Cybersecurity Basics (-2 Credits)</option>
+              <option value="UI/UX & Figma Design">UI/UX & Figma Design (-2 Credits)</option>
+              <option value="Applied Statistics">Applied Statistics (-2 Credits)</option>
+              <option value="Cloud Architecture">Cloud Architecture (-2 Credits)</option>
+            </select>
+            <div class="sim-credit-delta delta-spend">-2 Credits Allocated</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.75rem; padding: 1rem 1.25rem; background: rgba(0,0,0,0.25); border-radius: 0.75rem; border: 1px solid var(--border-subtle); text-align: center;">
+          <p id="simSummaryText" style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+            By tutoring <strong>JavaScript & React</strong>, you earn <span style="color:var(--color-credit-400); font-weight:700;">+2 Credits</span>. You immediately reinvest those credits to learn <strong>Python & AI Algorithms</strong> with zero out-of-pocket cost.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. CORE FEATURES GRID
+       ======================================================================== -->
+  <section class="features-section reveal-on-scroll" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Engineered for Academic Success</span>
+        <h2>Everything You Need to Exchange Skills</h2>
+        <p>Built with modern tools to streamline matching, scheduling, validation, and session delivery.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1: Smart Peer Matching -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+          </div>
+          <h3 class="feature-title">Smart Peer Matching</h3>
+          <p class="feature-description">Find compatible students instantly by querying exact skills, specific syllabi topics, scheduling windows, and learning speeds.</p>
+        </div>
+
+        <!-- Feature 2: Session Scheduling -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <h3 class="feature-title">Session Scheduling</h3>
+          <p class="feature-description">Request, accept, reschedule, or cancel study sessions in one tap. Built-in timezone intelligence and calendar syncing.</p>
+        </div>
+
+        <!-- Feature 3: Verified Skill Profiles -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="feature-title">Skill Profiles & Badges</h3>
+          <p class="feature-description">Showcase teaching specialties, verified course credentials, and earn peer-endorsed badges as you complete sessions.</p>
+        </div>
+
+        <!-- Feature 4: Ratings & Feedback -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <h3 class="feature-title">Ratings & Feedback</h3>
+          <p class="feature-description">Foster genuine accountability through mutual double-blind session reviews and detailed qualitative feedback.</p>
+        </div>
+
+        <!-- Feature 5: Notification Hub -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          </div>
+          <h3 class="feature-title">Notification Hub</h3>
+          <p class="feature-description">Receive real-time alerts for incoming session requests, schedule confirmations, credit transfers, and study reminders.</p>
+        </div>
+
+        <!-- Feature 6: Unified Student Dashboard -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </div>
+          <h3 class="feature-title">Personal Dashboard</h3>
+          <p class="feature-description">A single cockpit to monitor upcoming sessions, active teaching slots, credit balances, and peer tutor recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. INTERACTIVE SKILL NETWORK GRAPH
+       ======================================================================== -->
+  <section class="skill-network-section reveal-on-scroll" id="skill-network">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Interconnected Academic Graph</span>
+        <h2>Everyone Knows Something.</h2>
+        <p>One student's strength can become another student's breakthrough. Explore interconnected skill clusters and connect with peer tutors in real time.</p>
+      </div>
+
+      <div class="network-interactive-box">
+        <div class="network-graph-container">
+          
+          <!-- Interactive Node Graph Canvas -->
+          <div class="skills-nodes-wrap" id="skillsNodeWrap">
+            <!-- Background Web SVG -->
+            <svg class="skills-svg-connections" viewBox="0 0 600 400">
+              <line x1="80" y1="50" x2="480" y2="60" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <line x1="80" y1="50" x2="60" y2="200" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <line x1="480" y1="60" x2="490" y2="190" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <line x1="60" y1="200" x2="110" y2="340" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <line x1="490" y1="190" x2="440" y2="350" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <line x1="240" y1="120" x2="80" y2="50" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+              <line x1="240" y1="120" x2="480" y2="60" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+              <line x1="270" y1="260" x2="110" y2="340" stroke="rgba(16,185,129,0.25)" stroke-width="1.5"/>
+              <line x1="270" y1="260" x2="440" y2="350" stroke="rgba(16,185,129,0.25)" stroke-width="1.5"/>
+              <line x1="240" y1="120" x2="270" y2="260" stroke="rgba(168,85,247,0.3)" stroke-dasharray="4 4" stroke-width="2"/>
+            </svg>
+
+            <!-- 9 Interactive Skill Buttons -->
+            <button class="skill-node-btn node-web selected" data-skill="web">
+              <span>💻 Web Dev</span>
+            </button>
+            <button class="skill-node-btn node-math" data-skill="math">
+              <span>📐 Mathematics</span>
+            </button>
+            <button class="skill-node-btn node-net" data-skill="net">
+              <span>🌐 Networking</span>
+            </button>
+            <button class="skill-node-btn node-prog" data-skill="prog">
+              <span>⚡ Algorithms</span>
+            </button>
+            <button class="skill-node-btn node-db" data-skill="db">
+              <span>🗄️ Databases</span>
+            </button>
+            <button class="skill-node-btn node-ui" data-skill="ui">
+              <span>🎨 UI/UX Design</span>
+            </button>
+            <button class="skill-node-btn node-cyber" data-skill="cyber">
+              <span>🛡️ Cybersecurity</span>
+            </button>
+            <button class="skill-node-btn node-eng" data-skill="eng">
+              <span>✍️ Academic English</span>
+            </button>
+            <button class="skill-node-btn node-stat" data-skill="stat">
+              <span>📊 Statistics</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Peer Information Drawer -->
+          <div class="skill-detail-panel" id="skillDetailPanel">
+            <div class="skill-panel-header">
+              <span class="badge" id="skillPanelCategory">Software Engineering</span>
+              <span style="font-size: 0.8rem; color: var(--color-credit-400); font-weight: 600;">2 Credits / Session</span>
+            </div>
+            
+            <h3 class="skill-panel-title" id="skillPanelTitle">Web Development</h3>
+            <p id="skillPanelDesc" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              Master Modern JavaScript, React, Tailwind CSS, REST APIs, and Responsive UI architecture.
+            </p>
+
+            <div style="margin-top: 1.25rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint);">
+              Available Peer Tutors
+            </div>
+
+            <!-- Dynamic peer cards list -->
+            <div class="peer-list-mini" id="skillPanelPeerList">
+              <!-- Rendered via JS -->
+            </div>
+
+            <button class="btn btn-primary btn-sm" id="skillRequestSwapBtn" style="width: 100%; margin-top: 0.75rem;">
+              <span>Request Session with Peer</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. DASHBOARD PREVIEW MOCKUP
+       ======================================================================== -->
+  <section class="dashboard-preview-section reveal-on-scroll" id="dashboard-preview">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Student Cockpit Preview</span>
+        <h2>Experience the Acadova Portal</h2>
+        <p>A high-performance student workspace engineered to manage active study rooms, credit balances, and peer networks effortlessly.</p>
+      </div>
+
+      <div class="dashboard-mockup-wrapper">
+        <!-- Mock Browser Top Chrome -->
+        <div class="mockup-topbar">
+          <div class="window-dots">
+            <span class="window-dot dot-red"></span>
+            <span class="window-dot dot-yellow"></span>
+            <span class="window-dot dot-green"></span>
+          </div>
+          <div class="mockup-address-bar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>https://app.acadova.edu/dashboard</span>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--color-credit-400); font-weight: 600;">● Live Sync</div>
+        </div>
+
+        <!-- Mock Dashboard Inner -->
+        <div class="dashboard-mockup-body">
+          <!-- Sidebar -->
+          <aside class="dash-sidebar">
+            <div class="dash-user-badge">
+              <div class="student-avatar" style="background: linear-gradient(135deg, #6366F1, #38BDF8);">AR</div>
+              <div>
+                <div style="font-size: 0.875rem; font-weight: 700; color: var(--text-pure);">Alex Rivera</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">Computer Science, Yr 3</div>
+              </div>
+            </div>
+
+            <ul class="dash-nav-list">
+              <li class="dash-nav-item active" data-dash-view="overview">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Overview</span>
+              </li>
+              <li class="dash-nav-item" data-dash-view="sessions">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Study Sessions</span>
+              </li>
+              <li class="dash-nav-item" data-dash-view="wallet">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+                <span>Credit Wallet</span>
+              </li>
+              <li class="dash-nav-item" data-dash-view="peers">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                <span>Matching Hub</span>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- Main Content Area -->
+          <main class="dash-main-content">
+            <!-- Metrics Row -->
+            <div class="dash-metrics-row">
+              <div class="metric-widget">
+                <span class="metric-widget-label">Available Credits</span>
+                <span class="metric-widget-val" style="color: var(--color-credit-400);">24</span>
+              </div>
+              <div class="metric-widget">
+                <span class="metric-widget-label">Hours Exchanged</span>
+                <span class="metric-widget-val">18 hrs</span>
+              </div>
+              <div class="metric-widget">
+                <span class="metric-widget-label">Tutor Rating</span>
+                <span class="metric-widget-val" style="color: #FBBF24;">4.9 ★</span>
+              </div>
+              <div class="metric-widget">
+                <span class="metric-widget-label">Sessions Completed</span>
+                <span class="metric-widget-val">12</span>
+              </div>
+            </div>
+
+            <!-- Subgrid: Upcoming Sessions + Active Skills -->
+            <div class="dash-subgrid">
+              <!-- Upcoming Sessions -->
+              <div class="dash-card-box" id="dashSessionsPanel">
+                <div class="dash-card-box-title">
+                  <span>Upcoming Study Sessions</span>
+                  <span class="badge badge-cyan" style="font-size: 0.68rem;">3 Scheduled</span>
+                </div>
+
+                <div class="session-strip-item">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-pure);">Python Algorithms with Liam</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Today, 4:00 PM · Zoom Link Ready</div>
+                  </div>
+                  <span class="btn btn-sm btn-credit" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Join Room</span>
+                </div>
+
+                <div class="session-strip-item">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-pure);">Database Review with Daniel</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Tomorrow, 2:30 PM · 2 Credits Allocated</div>
+                  </div>
+                  <span class="badge" style="font-size: 0.7rem;">Confirmed</span>
+                </div>
+
+                <div class="session-strip-item">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-pure);">Tutoring Maria in Networking</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Friday, 6:00 PM · +2 Credits on Completion</div>
+                  </div>
+                  <span class="badge badge-credit" style="font-size: 0.7rem;">Teaching</span>
+                </div>
+              </div>
+
+              <!-- Skills Portfolio Chips -->
+              <div class="dash-card-box">
+                <div class="dash-card-box-title">
+                  <span>Skills You Teach</span>
+                </div>
+                <div class="chip-group" style="margin-bottom: 1.25rem;">
+                  <span class="skill-chip">JavaScript (ES6+)</span>
+                  <span class="skill-chip">Web Development</span>
+                  <span class="skill-chip">Database Systems</span>
+                </div>
+
+                <div class="dash-card-box-title">
+                  <span>Skills You Want to Learn</span>
+                </div>
+                <div class="chip-group">
+                  <span class="skill-chip skill-chip-learn">Cybersecurity</span>
+                  <span class="skill-chip skill-chip-learn">React Native</span>
+                  <span class="skill-chip skill-chip-learn">UI/UX Design</span>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. COMMUNITY & TRUST SECTION (Verified Student Reviews)
+       ======================================================================== -->
+  <section class="community-section reveal-on-scroll" id="community">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Scholarly Community</span>
+        <h2>Learn From Students. Grow With Students.</h2>
+        <p>Real stories from undergraduate and graduate students advancing their academic trajectories through peer reciprocity.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">
+              "I taught JavaScript for two sessions and used my newly earned credits to finally grasp complex computer networking topics before my midterm. It felt completely natural."
+            </p>
+          </div>
+          <div class="test-user">
+            <div class="student-avatar avatar-john">JD</div>
+            <div>
+              <div class="test-user-name">Johnathan Davis</div>
+              <div class="test-user-meta">Informatics Student · Taught Web Dev, Learned Networking</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">
+              "Private tutoring was costing me nearly \$200 every semester. With Acadova, I share what I know in Calculus and receive help with Python data structures for free. It’s a total game changer."
+            </p>
+          </div>
+          <div class="test-user">
+            <div class="student-avatar avatar-maria">MS</div>
+            <div>
+              <div class="test-user-name">Maria Santos</div>
+              <div class="test-user-meta">Mathematics Major · Taught Calculus, Learned Python</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">
+              "Acadova helped me find a peer tutor who explained database normalization rules in a way that actually made intuitive sense. The rating and review system ensures you're always paired with great peers."
+            </p>
+          </div>
+          <div class="test-user">
+            <div class="student-avatar avatar-sophia">SB</div>
+            <div>
+              <div class="test-user-name">Sophia Bennett</div>
+              <div class="test-user-meta">Information Systems · Taught English, Learned Databases</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. SDG 4: QUALITY EDUCATION COMMITMENT
+       ======================================================================== -->
+  <section class="sdg-section reveal-on-scroll" id="sdg-section">
+    <div class="container">
+      <div class="sdg-card">
+        <div class="sdg-badge-wrap">
+          <div class="sdg-icon-large">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          </div>
+          <span class="badge" style="background: rgba(197,25,45,0.2); color: #FF6B7A; border-color: rgba(197,25,45,0.4);">
+            UN SDG 4 Aligned
+          </span>
+          <h2 style="font-size: 2rem; color: var(--text-pure);">Supporting Quality Education for Every Student</h2>
+        </div>
+
+        <div>
+          <p style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7;">
+            Acadova directly advances <strong>United Nations Sustainable Development Goal 4 — Quality Education</strong> (specifically Targets 4.3 & 4.4) by democratizing tutoring support, eliminating financial barriers, and empowering students with collaborative pedagogical skills.
+          </p>
+
+          <div class="sdg-pillars">
+            <div class="sdg-pillar-item">
+              <div class="sdg-pillar-title">Zero Financial Gatekeeping</div>
+              <div class="sdg-pillar-desc">Equal access to technical and academic guidance regardless of socioeconomic status.</div>
+            </div>
+            <div class="sdg-pillar-item">
+              <div class="sdg-pillar-title">Pedagogical Empowerment</div>
+              <div class="sdg-pillar-desc">Students deepen core cognitive mastery by practicing effective knowledge transfer.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. FINAL CTA SECTION
+       ======================================================================== -->
+  <section class="final-cta-section reveal-on-scroll" id="final-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Your Next Skill Could Come From Your Next Peer.</h2>
+        <p class="cta-desc">
+          Join a thriving community where every student has valuable insights to teach and critical subjects to learn. Claim your starting credits and start exploring today.
+        </p>
+
+        <div class="cta-btn-group">
+          <button class="btn btn-primary btn-lg trigger-auth-modal" data-auth-mode="register">
+            <span>Start Learning (Claim 2 Free Credits)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button class="btn btn-secondary btn-lg trigger-auth-modal" data-auth-mode="register">
+            <span>Become a Peer Tutor</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       12. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="logo-icon-wrap" style="width: 2rem; height: 2rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <span>Acadova</span>
+          </a>
+          <p>
+            Peer-to-Peer Academic Skill and Knowledge Sharing Platform. Empowering students through reciprocal, credit-based academic collaboration.
+          </p>
+        </div>
+
+        <!-- Column 1 -->
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#credit-system">Credit Economics</a></li>
+            <li><a href="#features">Features Grid</a></li>
+            <li><a href="#dashboard-preview">Student Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 -->
+        <div>
+          <h4 class="footer-heading">Explore Skills</h4>
+          <ul class="footer-links">
+            <li><a href="#skill-network">Web Development</a></li>
+            <li><a href="#skill-network">Mathematics & Calculus</a></li>
+            <li><a href="#skill-network">Computer Networks</a></li>
+            <li><a href="#skill-network">Database Systems</a></li>
+            <li><a href="#skill-network">Cybersecurity</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div>
+          <h4 class="footer-heading">Academic & Trust</h4>
+          <ul class="footer-links">
+            <li><a href="#sdg-section">SDG 4 Quality Education</a></li>
+            <li><a href="#community">Verified Peer Reviews</a></li>
+            <li><a href="/api/health" target="_blank">API Health Status</a></li>
+            <li><a href="#hero">Academic Honor Code</a></li>
+            <li><a href="#hero">Privacy & Terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Acadova. Built for students, powered by knowledge.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#hero" style="color: var(--text-muted);">Privacy Policy</a>
+          <a href="#hero" style="color: var(--text-muted);">Terms of Service</a>
+          <a href="#hero" style="color: var(--text-muted);">Honor Code</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       13. AUTHENTICATION MODAL (LOGIN / REGISTER)
+       ======================================================================== -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-container">
+      <button class="modal-close-btn modal-close-trigger" aria-label="Close Modal">✕</button>
+
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab="register">Register (Free 2 Credits)</button>
+        <button class="modal-tab-btn" data-tab="login">Log In</button>
+      </div>
+
+      <h3 id="authModalTitle" style="font-size: 1.35rem; margin-bottom: 1.25rem; color: var(--text-pure);">Create Your Peer Profile</h3>
+
+      <form id="authForm">
+        <div class="form-group" id="authNameGroup">
+          <label class="form-label" for="authNameInput">Full Name</label>
+          <input type="text" class="form-input" id="authNameInput" placeholder="e.g. Maria Santos" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="authEmailInput">Academic Email (.edu or university)</label>
+          <input type="email" class="form-input" id="authEmailInput" placeholder="student@university.edu" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="authPasswordInput">Password</label>
+          <input type="password" class="form-input" id="authPasswordInput" placeholder="••••••••" minlength="6" required>
+        </div>
+
+        <div id="authSkillsGroup">
+          <div class="form-group">
+            <label class="form-label" for="authTeachInput">Skills You Can Teach</label>
+            <input type="text" class="form-input" id="authTeachInput" placeholder="e.g. Calculus, JavaScript, SQL">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="authLearnInput">Skills You Want to Learn</label>
+            <input type="text" class="form-input" id="authLearnInput" placeholder="e.g. Python, Networking, UI/UX">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="authSubmitBtn" style="width: 100%; margin-top: 0.75rem; padding: 0.85rem;">
+          Join & Claim 2 Free Credits
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       14. SESSION BOOKING MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn modal-close-trigger" aria-label="Close Modal">✕</button>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <span class="badge badge-credit" id="bookingSkillBadge">Skill</span>
+        <span style="font-size: 0.8rem; color: var(--color-credit-400); font-weight: 700;">2 Credits / hr</span>
+      </div>
+
+      <h3 style="font-size: 1.35rem; color: var(--text-pure); margin-bottom: 0.5rem;">
+        Request Session with <span id="bookingPeerName" style="color: var(--color-electric-400);">Peer Tutor</span>
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Schedule a focused 1-on-1 collaborative study session. 2 credits will be safely reserved in your escrow wallet until completion.
+      </p>
+
+      <form id="bookingForm">
+        <div class="form-group">
+          <label class="form-label" for="bookingTopicInput">Session Topic or Specific Problem</label>
+          <input type="text" class="form-input" id="bookingTopicInput" placeholder="e.g. Reviewing Normalization 3NF questions" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="bookingDateInput">Preferred Date & Time Window</label>
+          <input type="text" class="form-input" id="bookingDateInput" placeholder="e.g. Tomorrow at 4:00 PM" required>
+        </div>
+
+        <div style="padding: 0.85rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 0.65rem; margin-bottom: 1.25rem; font-size: 0.825rem; color: var(--color-credit-400);">
+          ⚡ Escrow Guarantee: Credits are only transferred after mutual session sign-off.
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Send Session Request (2 Credits)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client Interactive Engine Script -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
